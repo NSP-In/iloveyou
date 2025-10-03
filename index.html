@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Rupam — From Renasha</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
+      overflow-x: hidden;
+      color: #fff;
+    }
+    .sky {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .heart {
+      position: absolute;
+      width: 20px; height: 20px;
+      background: rgba(255,255,255,0.8);
+      transform: rotate(45deg);
+      animation: float 10s infinite ease-in;
+    }
+    .heart::before, .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px; height: 20px;
+      background: inherit;
+      border-radius: 50%;
+    }
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { left: -10px; top: 0; }
+    @keyframes float {
+      from { transform: translateY(100vh) rotate(45deg); opacity: 0; }
+      50% { opacity: 1; }
+      to { transform: translateY(-10vh) rotate(45deg); opacity: 0; }
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    .chapter {
+      display: none;
+      animation: fade 1s ease-in-out;
+    }
+    .chapter.active { display: block; }
+    @keyframes fade { from {opacity:0;} to {opacity:1;} }
+    .nav {
+      margin-top: 30px;
+    }
+    .nav button {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      color: #fff;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 25px;
+      transition: 0.3s;
+    }
+    .nav button:hover {
+      background: rgba(255,255,255,0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="sky">
+    <div class="heart" style="left:10%; animation-duration:12s;"></div>
+    <div class="heart" style="left:30%; animation-duration:15s;"></div>
+    <div class="heart" style="left:50%; animation-duration:10s;"></div>
+    <div class="heart" style="left:70%; animation-duration:18s;"></div>
+    <div class="heart" style="left:90%; animation-duration:14s;"></div>
+  </div>
+
+  <div class="container">
+    <h1>For Rupam ❤️ From Renasha</h1>
+
+    <div id="chapter1" class="chapter active">
+      <h2>Prologue</h2>
+      <p>Rupam, from the very first time I felt you close to me, my world started to change. I didn’t know what love was supposed to feel like until you showed me with your smile, your patience, your presence. You are not just someone in my life — you are the rhythm in my heart, the light in my days, and the reason I wake up with hope. This is not just a page, it’s a piece of my soul, wrapped only for you.</p>
+    </div>
+
+    <div id="chapter2" class="chapter">
+      <h2>Our Story</h2>
+      <p>When I think of us, I think of the little things first. The way you speak, the way you laugh, the way you say my name like it’s something fragile. Our story is not written in grand events but in the quiet moments only we share. Every second I’ve spent with you is stitched into me, and I wouldn’t trade it for anything. Even if the world forgets us, I will carry these memories, because they are mine and yours alone.</p>
+    </div>
+
+    <div id="chapter3" class="chapter">
+      <h2>Promises</h2>
+      <p>Rupam, I promise you this: no matter what time takes away, my heart will always find its way back to you. I promise to love you when you’re strong and when you’re tired, when you’re happy and when you’re broken. I promise to listen, to stand beside you, and to never let you feel alone in this life. These are not just words — they are my vows, and I will keep them as long as I breathe.</p>
+    </div>
+
+    <div id="chapter4" class="chapter">
+      <h2>Finale</h2>
+      <p>And so this little page ends, but my love for you never will. Every word here is just a shadow of what I feel inside, because there are no perfect sentences for what you mean to me. If I could, I would give you the world, but all I truly have is myself — and that, Rupam, belongs only to you. Forever yours, always, in every heartbeat and every thought.</p>
+      <p><em>— Renasha</em></p>
+    </div>
+
+    <div class="nav">
+      <button onclick="prevChapter()">⬅ Prev</button>
+      <button onclick="nextChapter()">Next ➡</button>
+    </div>
+  </div>
+
+  <script>
+    let current = 1;
+    const total = 4;
+
+    function showChapter(n) {
+      document.querySelectorAll('.chapter').forEach(c => c.classList.remove('active'));
+      document.getElementById('chapter' + n).classList.add('active');
+    }
+
+    function nextChapter() {
+      current = current < total ? current + 1 : 1;
+      showChapter(current);
+    }
+
+    function prevChapter() {
+      current = current > 1 ? current - 1 : total;
+      showChapter(current);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextChapter();
+      if (e.key === 'ArrowLeft') prevChapter();
+    });
+  </script>
+</body>
+</html>
