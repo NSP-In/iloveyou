@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>For Rupam — From Renasha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -45,8 +46,25 @@
       text-align: center;
     }
     h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
+      font-family: 'Playfair Display', serif;
+      font-size: 3em;
+      font-weight: 700;
+      margin-bottom: 40px;
+      background: linear-gradient(90deg, #ff5e8a, #ff1a47);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2em;
+      font-weight: 700;
+      margin-top: 50px;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #ff5e8a, #ff1a47);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
     }
     .chapter {
       display: none;
@@ -54,6 +72,18 @@
     }
     .chapter.active { display: block; }
     @keyframes fade { from {opacity:0;} to {opacity:1;} }
+    p {
+      font-size: 1.2em;
+      line-height: 1.8em;
+      color: #880e4f; /* dark pink/maroon for better contrast */
+      margin-bottom: 30px;
+    }
+    .signature {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.8em;
+      color: #ff1a47;
+      margin-top: 20px;
+    }
     .nav {
       margin-top: 30px;
     }
@@ -88,22 +118,25 @@
     <div id="chapter1" class="chapter active">
       <h2>Prologue</h2>
       <p>Rupam, from the very first time I felt you close to me, my world started to change. I didn’t know what love was supposed to feel like until you showed me with your smile, your patience, your presence. You are not just someone in my life — you are the rhythm in my heart, the light in my days, and the reason I wake up with hope. This is not just a page, it’s a piece of my soul, wrapped only for you.</p>
+      <p class="signature">— Renasha</p>
     </div>
 
     <div id="chapter2" class="chapter">
       <h2>Our Story</h2>
       <p>When I think of us, I think of the little things first. The way you speak, the way you laugh, the way you say my name like it’s something fragile. Our story is not written in grand events but in the quiet moments only we share. Every second I’ve spent with you is stitched into me, and I wouldn’t trade it for anything. Even if the world forgets us, I will carry these memories, because they are mine and yours alone.</p>
+      <p class="signature">— Renasha</p>
     </div>
 
     <div id="chapter3" class="chapter">
       <h2>Promises</h2>
       <p>Rupam, I promise you this: no matter what time takes away, my heart will always find its way back to you. I promise to love you when you’re strong and when you’re tired, when you’re happy and when you’re broken. I promise to listen, to stand beside you, and to never let you feel alone in this life. These are not just words — they are my vows, and I will keep them as long as I breathe.</p>
+      <p class="signature">— Renasha</p>
     </div>
 
     <div id="chapter4" class="chapter">
       <h2>Finale</h2>
       <p>And so this little page ends, but my love for you never will. Every word here is just a shadow of what I feel inside, because there are no perfect sentences for what you mean to me. If I could, I would give you the world, but all I truly have is myself — and that, Rupam, belongs only to you. Forever yours, always, in every heartbeat and every thought.</p>
-      <p><em>— Renasha</em></p>
+      <p class="signature">— Renasha</p>
     </div>
 
     <div class="nav">
@@ -119,16 +152,15 @@
     function showChapter(n) {
       document.querySelectorAll('.chapter').forEach(c => c.classList.remove('active'));
       document.getElementById('chapter' + n).classList.add('active');
+      current = n;
     }
 
     function nextChapter() {
-      current = current < total ? current + 1 : 1;
-      showChapter(current);
+      showChapter(current < total ? current + 1 : 1);
     }
 
     function prevChapter() {
-      current = current > 1 ? current - 1 : total;
-      showChapter(current);
+      showChapter(current > 1 ? current - 1 : total);
     }
 
     document.addEventListener('keydown', (e) => {
